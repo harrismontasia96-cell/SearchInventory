@@ -28,6 +28,13 @@ public class StoreApp {
             System.out.println("6. Search products by price");
             System.out.print("Enter choice: ");
 
+            if (!scanner.hasNextInt()) {
+                System.out.println("Please enter a number between 1–6.");
+                scanner.nextLine();
+                continue;
+            }
+
+
             int choice = scanner.nextInt();
             scanner.nextLine();
             System.out.println();
@@ -71,22 +78,17 @@ public class StoreApp {
                 case 6:
                     searchByPrice(inventory, scanner);
                     break;
+
+
             }
         }
-        if (!scanner.hasNextInt()) {
-            System.out.println("Please enter a number between 1–6.");
-            scanner.nextLine(); // clear bad input
-            continue;
-        }
-    }
-        }
         scanner.close();
+    }
 
 
     public static ArrayList<Product> getInventory() {
-        ArrayList<Product> inventory = new ArrayList<>();
-
         ArrayList<Product> inventory = new ArrayList<Product>();
+
         inventory.add(new Product(1434, "Perfume", 18.00f));
         inventory.add(new Product(4597, "BarbieDoll", 8.00f));
         inventory.add(new Product(9176, "AppleTree", 219.00f));
@@ -153,34 +155,37 @@ public static void searchByName(ArrayList<Product> inventory, Scanner scanner) {
             System.out.printf("%d - %s - $%.2f%n", p.getId(), p.getName(), p.getPrice());
             found = true;
         }
-    }
+        }
     if (!found) {
-        System.out.println("No products found with that name.");
+        System.out.println("Product not found.");
     }
-}
-public static void searchByPrice(ArrayList<Product> inventory, Scanner scanner) {
-    System.out.print("Enter minimum price: ");
-    float min = scanner.nextFloat();
-    System.out.print("Enter maximum price: ");
-    float max = scanner.nextFloat();
+    }
 
-    boolean found = false;
-    System.out.println("\nProducts within your price range:");
-    for (Product p : inventory) {
-        if (p.getPrice() >= min && p.getPrice() <= max) {
-            System.out.printf("%d - %s - $%.2f%n", p.getId(), p.getName(), p.getPrice());
-            found = true;
+        public static void searchByPrice (ArrayList < Product > inventory, Scanner scanner){
+            System.out.print("Enter minimum price: ");
+            float min = scanner.nextFloat();
+            System.out.print("Enter maximum price: ");
+            float max = scanner.nextFloat();
+
+            boolean found = false;
+            System.out.println("\nProducts within your price range:");
+            for (Product p : inventory) {
+                if (p.getPrice() >= min && p.getPrice() <= max) {
+                    System.out.printf("%d - %s - $%.2f%n", p.getId(), p.getName(), p.getPrice());
+                    found = true;
+                }
+            }
+
+            if (!found) {
+                System.out.println("No products found within that price range.");
+            }
+        }
+        public static void printProduct (Product p){
+            System.out.printf("%d - Name: %s - Price: $%.2f%n",
+                    p.getId(), p.getName(), p.getPrice());
         }
     }
 
-    if (!found) {
-        System.out.println("No products found within that price range.");
-    }
-}
-public static void printProduct(Product p) {
-    System.out.printf("%d - Name: %s - Price: $%.2f%n",
-            p.getId(), p.getName(), p.getPrice());
-}
 
 
 
