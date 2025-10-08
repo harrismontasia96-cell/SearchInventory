@@ -1,6 +1,6 @@
 package com.pluralsight;
 
-public class Product {public class Product {
+public class Product {
     private int id;
     private String name;
     private float price;
@@ -20,4 +20,4 @@ public class Product {public class Product {
     }
 }
 
-}
+
