@@ -129,8 +129,8 @@ import java.util.Scanner;
             System.out.print("Enter product price: ");
             float price = scanner.nextFloat();
 
-            inventory.put(id, new Product(id, name, price));  // ✅ insert new key/value pair
-            System.out.println("✅ Product added successfully!");
+            inventory.put(id, new Product(id, name, price));
+            System.out.println("Product added successfully!");
         }
 
         // =========================
