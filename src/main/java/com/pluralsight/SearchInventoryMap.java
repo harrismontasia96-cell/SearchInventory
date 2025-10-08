@@ -30,7 +30,7 @@ import java.util.Scanner;
                 System.out.print("Enter choice: ");
 
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // clear newline
+                scanner.nextLine();
                 System.out.println();
 
                 switch (choice) {
@@ -79,9 +79,6 @@ import java.util.Scanner;
             scanner.close();
         }
 
-        // =========================
-        // Load inventory from file
-        // =========================
         public static HashMap<Integer, Product> getInventory() {
             HashMap<Integer, Product> inventory = new HashMap<>();
 
@@ -98,7 +95,7 @@ import java.util.Scanner;
                     String name = parts[1];
                     float price = Float.parseFloat(parts[2]);
 
-                    inventory.put(id, new Product(id, name, price));  // ✅ store with ID as key
+                    inventory.put(id, new Product(id, name, price));
                 }
 
             } catch (IOException e) {
@@ -110,9 +107,6 @@ import java.util.Scanner;
             return inventory;
         }
 
-        // =========================
-        // Add new product interactively
-        // =========================
         public static void addNewProduct(HashMap<Integer, Product> inventory, Scanner scanner) {
             System.out.print("Enter new product ID: ");
             int id = scanner.nextInt();
@@ -133,9 +127,6 @@ import java.util.Scanner;
             System.out.println("Product added successfully!");
         }
 
-        // =========================
-        // Search by product name
-        // =========================
         public static void searchByName(HashMap<Integer, Product> inventory, Scanner scanner) {
             System.out.print("Enter product name (or part of it): ");
             String searchTerm = scanner.nextLine().toLowerCase();
@@ -152,9 +143,6 @@ import java.util.Scanner;
             }
         }
 
-        // =========================
-        // Search by product price range
-        // =========================
         public static void searchByPrice(HashMap<Integer, Product> inventory, Scanner scanner) {
             System.out.print("Enter minimum price: ");
             float min = scanner.nextFloat();
