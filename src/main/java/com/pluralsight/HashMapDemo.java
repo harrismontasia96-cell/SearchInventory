@@ -20,6 +20,7 @@ public class HashMapDemo {
 
         System.out.println("=== Welcome to the Store Inventory ===");
 
+
         boolean run = true;
         while (run) {
             System.out.print("\nEnter product ID to search: ");
