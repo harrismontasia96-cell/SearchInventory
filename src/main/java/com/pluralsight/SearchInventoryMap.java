@@ -119,7 +119,7 @@ import java.util.Scanner;
             scanner.nextLine();
 
             if (inventory.containsKey(id)) {
-                System.out.println("❌ A product with that ID already exists.");
+                System.out.println(" A product with that ID already exists.");
                 return;
             }
 
